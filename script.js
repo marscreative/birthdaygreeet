@@ -5,25 +5,31 @@ document.getElementById("startButton").addEventListener("click", function () {
     // Show Birthday Message
     document.getElementById("birthdayContainer").style.display = "flex";
 
-    // Generate Flowers
-    createFlowers();
+    // Generate Flowers and Gifts
+    createItems();
 });
 
-function createFlowers() {
+function createItems() {
     const flowerContainer = document.getElementById("flowerContainer");
-    const flowerImages = ["??", "??", "??", "??", "??"];
+    const items = [
+        { type: "flower", image: "images/flower.svg" },
+        { type: "gift", image: "images/gift.svg" }
+    ];
 
     for (let i = 0; i < 15; i++) {
         setTimeout(() => {
-            let flower = document.createElement("div");
-            flower.className = "flower";
-            flower.innerHTML = flowerImages[Math.floor(Math.random() * flowerImages.length)];
+            let item = document.createElement("div");
+            item.className = "item";
+            let randomItem = items[Math.floor(Math.random() * items.length)];
+            let img = document.createElement("img");
+            img.src = randomItem.image;
+            item.appendChild(img);
 
             // Random position
-            flower.style.left = Math.random() * window.innerWidth + "px";
-            flower.style.top = Math.random() * window.innerHeight + "px";
+            item.style.left = Math.random() * window.innerWidth + "px";
+            item.style.top = Math.random() * window.innerHeight + "px";
 
-            flowerContainer.appendChild(flower);
+            flowerContainer.appendChild(item);
         }, i * 300);
     }
 }
