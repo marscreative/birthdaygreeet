@@ -50,6 +50,13 @@ h1 {
     animation: fadeIn 1s ease-in-out forwards;
 }
 
+/* Celebrant's Name */
+#celebrantName {
+    color: #ff62a3; /* A nice highlight color for the name */
+    font-weight: bold;
+    font-size: 3.2em; /* Slightly larger to make it stand out */
+}
+
 /* Flower and Gift Animation */
 .item {
     position: absolute;
